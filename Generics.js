@@ -1,10 +1,23 @@
 // Generics
-function toArray() {
-    var arg = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        arg[_i] = arguments[_i];
-    }
+/*
+type TypeFactory<T> = T;
+type XType1 = TypeFactory<string>;
+type XType2 = TypeFactory<number>;
+type XType3 = TypeFactory<boolean>;
+
+
+function toArray<T>(...arg: T[]): T[]{
     return arg;
 }
-toArray(1, 2, 3);
+toArray(1,2,3);
 toArray('a', 'a');
+*/
+// Constraints
+function len(arg) {
+    console.log(arg.length);
+}
+len('abc');
+len(['abc']);
+len({ length: 10 });
+//len(10);
+//len(true);
