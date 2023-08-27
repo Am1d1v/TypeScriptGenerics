@@ -30,6 +30,7 @@ len({length: 10});
 
 // Keyof
 
+/*
 type WindowProp = keyof Window;
 
 const myValue: WindowProp = "alert";
@@ -45,11 +46,23 @@ const val1: Type1 = "brand";
 
 type Tuple1 = keyof [string, number];
 const val2: Tuple1 = "0";
+*/
 
+// Constraints of Keyof
 
+function prop<T, U extends keyof T>(key: U, obj: T){
+    console.log(obj[key]);
+}
 
+/*
+interface Laptop  {
+    brand: string;
+}
+type F = Laptop["brand"];
+*/
 
-
+const obj1 = {a: 1, b: 2, c: 3};
+prop('a', obj1);
 
 
 
