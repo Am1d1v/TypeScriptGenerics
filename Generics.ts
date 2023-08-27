@@ -71,6 +71,7 @@ prop('a', obj1);
 
 // Default Value of Type
 
+/*
 interface AnyObject {
     [key: string]: unknown;
 }
@@ -83,8 +84,19 @@ async function someRequest<T = AnyObject>(url: string): Promise<T>{
 }
 
 const data = someRequest('https://jsonplaceholder.typicode.com/todos/1');
+*/
 
+// Type Scope
 
+function TupleCreatorFirstArg<T>(first: T){
 
+    return function<U>(second: U): [T, U]{
 
+        return [first, second];
+    }
+}
+
+const Tuple1 = TupleCreatorFirstArg(1);
+const val2 = Tuple1(2);
+console.log(val2);
 
