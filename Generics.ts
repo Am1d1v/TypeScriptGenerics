@@ -50,9 +50,11 @@ const val2: Tuple1 = "0";
 
 // Constraints of Keyof
 
+/*
 function prop<T, U extends keyof T>(key: U, obj: T){
     console.log(obj[key]);
 }
+*/
 
 /*
 interface Laptop  {
@@ -61,9 +63,26 @@ interface Laptop  {
 type F = Laptop["brand"];
 */
 
+/*
 const obj1 = {a: 1, b: 2, c: 3};
 prop('a', obj1);
+//prop('d', obj1); Error
+*/
 
+// Default Value of Type
+
+interface AnyObject {
+    [key: string]: unknown;
+}
+
+async function someRequest<T = AnyObject>(url: string): Promise<T>{
+    const response = await fetch(url);
+
+    console.log(response);
+    return response.json();
+}
+
+const data = someRequest('https://jsonplaceholder.typicode.com/todos/1');
 
 
 
